@@ -1,214 +1,323 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konstantin Borisov | Engineering Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <meta name="description" content="Konstantin - Full-Stack Developer Portfolio | Laboratório Prático de JavaScript">
+    <title>Konstantin | Desenvolvedor Full-Stack</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="canvas-container"></div>
+    <!-- Canvas para animação de fundo -->
+    <canvas id="bgCanvas"></canvas>
 
-    <nav class="header">
-        <div class="container nav-flex">
-            <a href="#" class="logo">KONSTANTIN<span> BORISOV</span></a>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">konstantin Borisov</div>
             <ul class="nav-links">
-                <li><a href="#skills">Стек</a></li>
-                <li><a href="#lab">Лаборатория</a></li>
-                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#tech-stack">Tecnologias</a></li>
+                <li><a href="#laboratory">Laboratório</a></li>
+                <li><a href="#contact">Contato</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <main>
-        <section class="hero container section">
-            <div class="hero-content reveal">
-                <span class="badge">Full-Stack Developer 2026</span>
-                <h1>Цифровая <br><span class="text-gradient">Эстетика Кода</span></h1>
-                <p>Проектирую интерфейсы, где чистая логика встречается с безупречным UX.</p>
-            </div>
-        </section>
-
-        <section id="skills" class="container section">
-            <h2 class="reveal">Технический Стек</h2>
-            <div class="bento-grid">
-                <div class="bento-item reveal">
-                    <i class="fas fa-code bento-icon"></i>
-                    <h3>Frontend Core</h3>
-                    <p>Modern DOM API, асинхронные компоненты и Three.js визуализация.</p>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Meu nome é <span class="gradient-text">Konstantin</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Eu projeto interfaces onde a lógica limpa encontra uma experiência UX impecável.
+                    </p>
+                    <p class="hero-description">
+                        Desenvolvedor Full-Stack com foco em frontend. Criador de soluções digitais modernas utilizando HTML5, CSS3 e JavaScript vanilla.
+                    </p>
+                    <button class="cta-button" onclick="document.getElementById('laboratory').scrollIntoView({behavior: 'smooth'})">
+                        Ver Projetos
+                        <span class="button-glow"></span>
+                    </button>
                 </div>
-                <div class="bento-item reveal accent-bento">
-                    <i class="fas fa-layer-group bento-icon"></i>
-                    <h3>Software Design</h3>
-                    <p>Глубокое понимание ООП, паттернов проектирования и чистой архитектуры.</p>
-                </div>
-                <div class="bento-item reveal">
-                    <i class="fas fa-vial bento-icon"></i>
-                    <h3>QA & Logic</h3>
-                    <p>Комплексная валидация данных и алгоритмические решения задач.</p>
+                <div class="hero-visual">
+                    <div class="floating-card card-1"></div>
+                    <div class="floating-card card-2"></div>
+                    <div class="floating-card card-3"></div>
                 </div>
             </div>
         </section>
 
-        <section id="lab" class="container section">
-            <h2 class="reveal">Практическая Лаборатория</h2>
-            <div class="accordion-container reveal">
-
-                <details class="acc-card">
-                    <summary><span>1. Калькулятор одобрения</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <input type="number" id="gradeIn" placeholder="Введите оценку студента">
-                            <button onclick="app.checkGrade()">Проверить</button>
-                            <p id="gradeRes" class="res-box"></p>
-                        </div>
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="tech-stack section">
+            <div class="container">
+                <h2 class="section-title">Meu Stack Técnico</h2>
+                <p class="section-subtitle">Ferramentas e tecnologias que domino</p>
+                
+                <div class="stack-grid">
+                    <!-- Frontend Core -->
+                    <div class="stack-card">
+                        <div class="stack-icon">📱</div>
+                        <h3>Frontend Core</h3>
+                        <p>HTML5, CSS3, Flexbox, CSS Grid, Vanilla JavaScript</p>
                     </div>
-                </details>
 
-                <details class="acc-card">
-                    <summary><span>2. Расчет скидки</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <div class="input-row">
-                                <input type="number" id="discPrice" placeholder="Цена">
-                                <input type="number" id="discPerc" placeholder="%">
-                            </div>
-                            <button onclick="app.calcDiscount()">Рассчитать</button>
-                            <p id="discRes" class="res-box"></p>
-                        </div>
+                    <!-- Programação -->
+                    <div class="stack-card">
+                        <div class="stack-icon">⚙️</div>
+                        <h3>Programação</h3>
+                        <p>OOP, CRUD Operations, Async/Await, Promises</p>
                     </div>
-                </details>
 
-                <details class="acc-card">
-                    <summary><span>3. Переключатель цветов</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <div id="colorBox" class="preview-div">Тестовый блок</div>
-                            <div class="btn-group">
-                                <button class="btn-mini" onclick="app.changeColor('red')">Red</button>
-                                <button class="btn-mini" onclick="app.changeColor('#00f2ff')">Cyan</button>
-                                <button class="btn-mini" onclick="app.changeColor('var(--glass-border)')">Reset</button>
-                            </div>
-                        </div>
+                    <!-- Design -->
+                    <div class="stack-card">
+                        <div class="stack-icon">✨</div>
+                        <h3>Design</h3>
+                        <p>Glassmorphism, Animações, UX/UI, Responsive Design</p>
                     </div>
-                </details>
 
-                <details class="acc-card">
-                    <summary><span>4. Арифметика (Switch)</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <div class="input-row"><input type="number" id="calcN1"><input type="number" id="calcN2"></div>
-                            <div class="btn-grid-mini">
-                                <button onclick="app.calc('+')">+</button><button onclick="app.calc('-')">-</button>
-                                <button onclick="app.calc('*')">*</button><button onclick="app.calc('/')">/</button>
-                            </div>
-                            <p id="calcRes" class="res-box"></p>
-                        </div>
+                    <!-- Ferramentas -->
+                    <div class="stack-card">
+                        <div class="stack-icon">🛠️</div>
+                        <h3>Ferramentas</h3>
+                        <p>Git, DevTools, Performance Optimization, Best Practices</p>
                     </div>
-                </details>
-
-                <details class="acc-card">
-                    <summary><span>5. Приветствие по времени</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <input type="text" id="greetName" placeholder="Ваше имя">
-                            <input type="number" id="greetHour" placeholder="Час (0-23)">
-                            <button onclick="app.sayHello()">Поприветствовать</button>
-                            <p id="greetRes" class="res-box"></p>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="acc-card">
-                    <summary><span>6. Игра «Крестики-нолики»</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <div class="ttt-grid">
-                                <div class="cell" data-i="0"></div><div class="cell" data-i="1"></div><div class="cell" data-i="2"></div>
-                                <div class="cell" data-i="3"></div><div class="cell" data-i="4"></div><div class="cell" data-i="5"></div>
-                                <div class="cell" data-i="6"></div><div class="cell" data-i="7"></div><div class="cell" data-i="8"></div>
-                            </div>
-                            <button class="btn-secondary" onclick="app.resetTTT()">Сбросить поле</button>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="acc-card">
-                    <summary><span>7. Список дел (To-Do)</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <div class="input-row">
-                                <input type="text" id="todoIn" placeholder="Новая задача">
-                                <button onclick="app.addTodo()">+</button>
-                            </div>
-                            <ul id="todoList" class="custom-list"></ul>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="acc-card">
-                    <summary><span>8. Валидация контактов</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <input type="text" id="vName" placeholder="Имя">
-                            <input type="email" id="vEmail" placeholder="Email">
-                            <button onclick="app.validate()">Проверить</button>
-                            <p id="vRes" class="res-box"></p>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="acc-card">
-                    <summary><span>9. ООП Управление авто</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <button onclick="app.testOOP()">Запустить систему классов</button>
-                            <p id="oopRes" class="res-box"></p>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="acc-card">
-                    <summary><span>10. Fetch данных (Async)</span><i class="fas fa-plus"></i></summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <button id="fetchBtn" onclick="app.fetchAsync()">Запросить данные</button>
-                            <p id="fetchRes" class="res-box"></p>
-                        </div>
-                    </div>
-                </details>
-
+                </div>
             </div>
         </section>
 
-        <footer id="contact" class="container section">
-            <div class="glass-footer reveal">
-                <div class="footer-grid">
-                    <div class="footer-info">
-                        <h2>Контакты</h2>
-                        <p>Готов к обсуждению новых проектов.</p>
-                        <div class="social-row">
-                            <a href="https://github.com/vestek70" target="_blank" class="social-link"><i class="fab fa-github"></i> GitHub</a>
-                            <div class="email-copy-wrapper" onclick="app.copyEmail()">
-                                <span id="emailStr">vestek70@gmail.com</span>
-                                <i class="far fa-copy"></i>
+        <!-- Practical Laboratory Section -->
+        <section id="laboratory" class="laboratory section">
+            <div class="container">
+                <h2 class="section-title">Laboratório Prático de JavaScript</h2>
+                <p class="section-subtitle">10 Exercícios práticos de desenvolvimento frontend</p>
+                
+                <div class="lab-grid">
+                    <!-- 1. Calculadora de Aprovação -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Calculadora de Aprovação</h3>
+                            <span class="lab-number">01</span>
+                        </div>
+                        <p class="card-description">Valide se a nota é ≥7 para aprovação automática</p>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="number" id="gradeInput" min="0" max="10" placeholder="Nota (0-10)" class="input-field">
+                                <button class="btn btn-primary" onclick="app.modules.approval.check()">Verificar</button>
+                            </div>
+                            <div class="result-box" id="gradeResult"></div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Calculadora de Desconto -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Calculadora de Desconto</h3>
+                            <span class="lab-number">02</span>
+                        </div>
+                        <p class="card-description">Calcule o preço final com validação de dados</p>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="number" id="priceInput" min="0" placeholder="Preço (R$)" class="input-field">
+                                <input type="number" id="discountInput" min="0" max="100" placeholder="Desconto (%)" class="input-field">
+                            </div>
+                            <button class="btn btn-primary" onclick="app.modules.discount.calculate()">Calcular</button>
+                            <div class="result-box" id="discountResult"></div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Alternador de Cores -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Alternador de Cores</h3>
+                            <span class="lab-number">03</span>
+                        </div>
+                        <p class="card-description">Mude as cores dos elementos com botões</p>
+                        <div class="card-body">
+                            <div class="color-boxes">
+                                <div class="color-box" id="colorBox1">Box 1</div>
+                                <div class="color-box" id="colorBox2">Box 2</div>
+                                <div class="color-box" id="colorBox3">Box 3</div>
+                            </div>
+                            <div class="button-group">
+                                <button class="btn btn-color" data-color="#FF6B9D">Rosa</button>
+                                <button class="btn btn-color" data-color="#00D9FF">Ciano</button>
+                                <button class="btn btn-color" data-color="#A0FF00">Verde</button>
+                                <button class="btn btn-secondary" onclick="app.modules.colorSwitcher.reset()">Reset</button>
                             </div>
                         </div>
                     </div>
-                    <form onsubmit="app.handleForm(event)" class="footer-form">
-                        <input type="email" placeholder="Ваш Email" required>
-                        <button type="submit">Отправить</button>
-                        <p id="formStatus" class="status-msg"></p>
-                    </form>
+
+                    <!-- 4. Calculadora Aritmética -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Calculadora Aritmética</h3>
+                            <span class="lab-number">04</span>
+                        </div>
+                        <p class="card-description">Operações com proteção contra divisão por zero</p>
+                        <div class="card-body">
+                            <div class="calc-inputs">
+                                <input type="number" id="calcNum1" placeholder="Número 1" class="input-field">
+                                <select id="calcOperator" class="input-field">
+                                    <option value="+">+</option>
+                                    <option value="-">-</option>
+                                    <option value="*">×</option>
+                                    <option value="/">÷</option>
+                                </select>
+                                <input type="number" id="calcNum2" placeholder="Número 2" class="input-field">
+                                <button class="btn btn-primary" onclick="app.modules.calculator.compute()">Calcular</button>
+                            </div>
+                            <div class="result-box" id="calcResult"></div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Saudação Inteligente -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Saudação Inteligente</h3>
+                            <span class="lab-number">05</span>
+                        </div>
+                        <p class="card-description">Saudação personalizada conforme hora do dia</p>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" id="greetingName" placeholder="Seu nome" class="input-field">
+                                <input type="number" id="greetingHour" min="0" max="23" placeholder="Hora (0-23)" class="input-field">
+                            </div>
+                            <button class="btn btn-primary" onclick="app.modules.greeting.generate()">Saudar</button>
+                            <div class="result-box" id="greetingResult"></div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Jogo da Velha -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Jogo da Velha</h3>
+                            <span class="lab-number">06</span>
+                        </div>
+                        <p class="card-description">Jogo 3x3 com detecção automática de vitória</p>
+                        <div class="card-body">
+                            <div class="game-board" id="tictactoeBoard">
+                                <div class="game-cell" data-index="0"></div>
+                                <div class="game-cell" data-index="1"></div>
+                                <div class="game-cell" data-index="2"></div>
+                                <div class="game-cell" data-index="3"></div>
+                                <div class="game-cell" data-index="4"></div>
+                                <div class="game-cell" data-index="5"></div>
+                                <div class="game-cell" data-index="6"></div>
+                                <div class="game-cell" data-index="7"></div>
+                                <div class="game-cell" data-index="8"></div>
+                            </div>
+                            <div class="game-info">
+                                <span id="gameStatus">Turno: X</span>
+                                <button class="btn btn-secondary" onclick="app.modules.tictactoe.reset()">Nova Partida</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. To-Do List Dinâmica -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>To-Do List Dinâmica</h3>
+                            <span class="lab-number">07</span>
+                        </div>
+                        <p class="card-description">Adicione tarefas e gerencie com DOM dinâmico</p>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" id="todoInput" placeholder="Nova tarefa..." class="input-field">
+                                <button class="btn btn-primary" onclick="app.modules.todoList.add()">Adicionar</button>
+                            </div>
+                            <ul class="todo-list" id="todoListContainer"></ul>
+                        </div>
+                    </div>
+
+                    <!-- 8. Validação de Formulário -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Validação de Formulário</h3>
+                            <span class="lab-number">08</span>
+                        </div>
+                        <p class="card-description">Valide nome e email com RegEx</p>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" id="formName" placeholder="Nome (3-50 caracteres)" class="input-field">
+                                <input type="email" id="formEmail" placeholder="Email válido" class="input-field">
+                            </div>
+                            <button class="btn btn-primary" onclick="app.modules.formValidation.validate()">Validar</button>
+                            <div class="result-box" id="formResult"></div>
+                        </div>
+                    </div>
+
+                    <!-- 9. Sistema de Veículos (OOP) -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Sistema de Veículos</h3>
+                            <span class="lab-number">09</span>
+                        </div>
+                        <p class="card-description">OOP com classes, herança e polimorfismo</p>
+                        <div class="card-body">
+                            <button class="btn btn-primary" onclick="app.modules.vehicleSystem.demo()">Executar Demo</button>
+                            <p class="small-text">Abra o DevTools (F12) → Console para ver o resultado</p>
+                            <div class="result-box" id="vehicleResult"></div>
+                        </div>
+                    </div>
+
+                    <!-- 10. Simulação de Servidor -->
+                    <div class="lab-card reveal-card">
+                        <div class="card-header">
+                            <h3>Simulação de Servidor</h3>
+                            <span class="lab-number">10</span>
+                        </div>
+                        <p class="card-description">Promises, Async/Await e loading animation</p>
+                        <div class="card-body">
+                            <button class="btn btn-primary" id="serverBtn" onclick="app.modules.serverSimulation.fetch()">
+                                Buscar Dados
+                            </button>
+                            <div class="result-box" id="serverResult"></div>
+                            <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                                <div class="spinner"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 class="section-title">Vamos Conversar?</h2>
+                <p class="section-subtitle">Entre em contato para discutir seus projetos</p>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p>Estou sempre aberto para novos desafios e oportunidades de colaboração.</p>
+                        <ul class="social-links">
+                          <li>
+  <a href="https://github.com/konstantin-dev"
+     target="_blank"
+     rel="noopener noreferrer">
+     GitHub
+  </a>
+</li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                            <li><a href="mailto:vestek70@gmail.com">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="app.js"></script>
-    <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Konstantin Borisov| Full-Stack Developer Portfolio</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>
