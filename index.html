@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konstantin Borisov | Full-Stack Portfolio</title>
     
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -18,8 +17,8 @@
         <div class="container nav-flex">
             <a href="#" class="logo">KONSTANTIN BORISOV<span></span></a>
             <ul class="nav-links">
-                <li><a href="#skills">Steak</a></li>
-                <li><a href="#lab">projetos</a></li>
+                <li><a href="#skills">Стек</a></li>
+                <li><a href="#lab">Лаборатория</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </div>
@@ -31,11 +30,6 @@
                 <span class="badge">Full-Stack Developer 2026</span>
                 <h1>Цифровая <br><span class="text-gradient">Эстетика Кода</span></h1>
                 <p>Меня зовут Константин. Я проектирую интерфейсы, где чистая логика встречается с безупречным UX.</p>
-                <div class="social-hero">
-                    <a href="mailto:vestek70@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://wa.me/yournumber"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://github.com/yourprofile"><i class="fa-brands fa-github"></i></a>
-                </div>
             </div>
         </section>
 
@@ -43,17 +37,14 @@
             <h2 class="reveal">Технический Стек</h2>
             <div class="bento-grid">
                 <div class="bento-item reveal">
-                    <i class="fa-solid fa-layer-group"></i>
                     <h3>Frontend Core</h3>
                     <p>Modern DOM API, асинхронные компоненты и Three.js визуализация.</p>
                 </div>
                 <div class="bento-item reveal accent-bento">
-                    <i class="fa-solid fa-code-branch"></i>
                     <h3>Software Design</h3>
                     <p>Глубокое понимание ООП, паттернов проектирования и чистой архитектуры.</p>
                 </div>
                 <div class="bento-item reveal">
-                    <i class="fa-solid fa-user-gear"></i>
                     <h3>UX/UI Strategy</h3>
                     <p>Создание удобных путей пользователя и адаптивных интерфейсов.</p>
                 </div>
@@ -62,13 +53,11 @@
 
         <section id="lab" class="container section">
             <h2 class="reveal">Практическая Лаборатория</h2>
-            <p class="section-desc reveal">Ниже представлены интерактивные модули. Нажмите на модуль, чтобы открыть его интерфейс.</p>
-            
             <div class="accordion-container reveal">
                 <details class="acc-card">
                     <summary>
-                        <span class="acc-title"><i class="fa-solid fa-check-double"></i> Калькулятор баллов</span>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
+                        <span class="acc-title">Калькулятор баллов</span>
+                        <span class="arrow">▼</span>
                     </summary>
                     <div class="acc-content">
                         <div class="widget-ui">
@@ -81,8 +70,8 @@
 
                 <details class="acc-card">
                     <summary>
-                        <span class="acc-title"><i class="fa-solid fa-gamepad"></i> Игра «Крестики-нолики»</span>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
+                        <span class="acc-title">Игра «Крестики-нолики»</span>
+                        <span class="arrow">▼</span>
                     </summary>
                     <div class="acc-content">
                         <div class="widget-ui">
@@ -95,22 +84,7 @@
                         </div>
                     </div>
                 </details>
-
-                <details class="acc-card">
-                    <summary>
-                        <span class="acc-title"><i class="fa-solid fa-bolt"></i> Async Data Loader</span>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
-                    </summary>
-                    <div class="acc-content">
-                        <div class="widget-ui">
-                            <p>Имитация работы с API через Async/Await</p>
-                            <button id="fetchBtn" onclick="app.fetchData()">Запросить данные</button>
-                            <div id="fetchStatus" class="res-box"></div>
-                        </div>
-                    </div>
-                </details>
-
-                </div>
+            </div>
         </section>
 
         <section id="contact" class="container section">
@@ -119,15 +93,25 @@
                 <div class="footer-grid">
                     <div class="contact-info">
                         <p>Я всегда открыт для новых идей и сложных технических вызовов.</p>
-                        <div class="social-links">
-                            <a href="mailto:vestek70@gmail.com"><i class="fa-solid fa-envelope"></i> Почта</a>
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                            <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
-                        </div>
+                        
+                        <ul class="social-icon-list" aria-label="Social media">
+                            <li class="social-item">
+                                <a href="https://github.com/vestek70" target="_blank" rel="noreferrer noopener" title="GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="social-svg" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                                </a>
+                            </li>
+                            <li class="social-item email-group">
+                                <a href="mailto:vestek70@gmail.com" title="Написать письмо">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="social-svg" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                </a>
+                                <button class="copy-btn-inline" onclick="app.copyEmail()" id="copyBtn" title="Копировать Email">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg-small"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                </button>
+                            </li>
+                        </ul>
                     </div>
-                    <form id="contactForm" onsubmit="app.handleForm(event)">
-                        <input type="email" id="fEmail" placeholder="Ваш Email" required>
-                        <button type="submit">Отправить</button>
+                    
+                
                         <p id="formStatus"></p>
                     </form>
                 </div>

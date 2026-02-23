@@ -2,23 +2,26 @@ class PortfolioApp {
     constructor() {
         this.board = Array(9).fill(null);
         this.currentPlayer = 'X';
-        this.initTTT();
+        window.addEventListener('DOMContentLoaded', () => {
+            this.initTTT();
+        });
     }
 
-    // 1. Калькулятор баллов
+    // Калькулятор баллов
     checkGrade() {
         const val = document.getElementById('gradeIn').value;
         const res = document.getElementById('gradeRes');
-        if(!val) return;
+        if(!val || !res) return;
         const isPassed = val >= 60;
         res.innerHTML = isPassed ? 
-            `<span style="color:var(--primary)">✅ Статус: Одобрен</span>` : 
-            `<span style="color:#ff4d4d">❌ Статус: Недостаточно баллов</span>`;
+            `<span style="color:var(--primary)">✅ Одобрен</span>` : 
+            `<span style="color:#ff4d4d">❌ Мало баллов</span>`;
     }
 
-    // 2. Крестики-нолики
+    // Крестики-нолики
     initTTT() {
-        document.querySelectorAll('.cell').forEach(cell => {
+        const cells = document.querySelectorAll('.cell');
+        cells.forEach(cell => {
             cell.onclick = (e) => {
                 const idx = e.target.dataset.i;
                 if(this.board[idx] || this.checkWinner()) return;
@@ -28,7 +31,7 @@ class PortfolioApp {
                 e.target.style.color = this.currentPlayer === 'X' ? 'var(--primary)' : 'var(--accent)';
                 
                 if(this.checkWinner()) {
-                    setTimeout(() => alert(`Победитель: ${this.currentPlayer}`), 10);
+                    setTimeout(() => alert(`Победа: ${this.currentPlayer}`), 10);
                 } else {
                     this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
                 }
@@ -38,11 +41,7 @@ class PortfolioApp {
 
     checkWinner() {
         const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-        return wins.some(comb => 
-            this.board[comb[0]] && 
-            this.board[comb[0]] === this.board[comb[1]] && 
-            this.board[comb[0]] === this.board[comb[2]]
-        );
+        return wins.some(comb => this.board[comb[0]] && this.board[comb[0]] === this.board[comb[1]] && this.board[comb[0]] === this.board[comb[2]]);
     }
 
     resetTTT() {
@@ -51,33 +50,26 @@ class PortfolioApp {
         document.querySelectorAll('.cell').forEach(c => c.innerText = "");
     }
 
-    // 3. Асинхронная загрузка
-    async fetchData() {
-        const status = document.getElementById('fetchStatus');
-        const btn = document.getElementById('fetchBtn');
-        btn.disabled = true;
-        status.innerText = "⏳ Подключение к серверу...";
-        
-        await new Promise(res => setTimeout(res, 1500));
-        
-        status.innerHTML = `<span style="color:var(--primary)">✅ Данные успешно синхронизированы!</span>`;
-        btn.disabled = false;
+    // Копирование Email
+    copyEmail() {
+        const email = "vestek70@gmail.com";
+        navigator.clipboard.writeText(email).then(() => {
+            const status = document.getElementById('formStatus');
+            if(status) {
+                status.innerText = "Email скопирован!";
+                status.style.color = "var(--primary)";
+                setTimeout(() => status.innerText = "", 2000);
+            }
+        });
     }
 
-    // 4. Валидация формы
-    handleForm(e) {
-        e.preventDefault();
-        const email = document.getElementById('fEmail').value;
+    // Обработка формы
+    handleForm(event) {
+        event.preventDefault();
         const status = document.getElementById('formStatus');
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if(re.test(email)) {
-            status.innerText = "Спасибо! Сообщение отправлено.";
-            status.style.color = "var(--primary)";
-        } else {
-            status.innerText = "Ошибка: неверный формат почты.";
-            status.style.color = "#ff4d4d";
-        }
+        status.innerText = "Сообщение отправлено!";
+        status.style.color = "var(--primary)";
+        event.target.reset();
     }
 }
 
