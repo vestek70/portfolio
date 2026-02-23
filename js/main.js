@@ -233,7 +233,15 @@ class ArithmeticCalculator {
                 resultEl.textContent = '❌ Operador inválido';
         }
 
-        resultEl.textContent = `${num1} ${symbol} ${num2} = ${result.toFixed(4)}`;
+        // Форматируем результат: целые числа без десятичных, дробные — максимум 2 знака, без лишних нулей
+        let formatted;
+        if (Number.isInteger(result)) {
+            formatted = result.toString();
+        } else {
+            formatted = Number(result.toFixed(2)).toString();
+        }
+
+        resultEl.textContent = `${num1} ${symbol} ${num2} = ${formatted}`;
         resultEl.style.color = '#00d9ff';
     }
 }
