@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konstantin Borisov | Dev Portfolio</title>
+    <title>Konstantin Borisov | Full-Stack Portfolio</title>
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
@@ -14,111 +16,120 @@
 
     <nav class="header">
         <div class="container nav-flex">
-            <a href="#" class="logo">BORISOV<span>.</span></a>
+            <a href="#" class="logo">KONSTANTIN BORISOV<span></span></a>
             <ul class="nav-links">
-                <li><a href="#about">О себе</a></li>
-                <li><a href="#lab">Лаборатория</a></li>
+                <li><a href="#skills">Steak</a></li>
+                <li><a href="#lab">projetos</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
-        <section id="about" class="hero container section">
-            <div class="reveal">
-                <span class="badge">Junior Frontend Developer</span>
-                <h1>Digital <span class="text-gradient">Experience</span></h1>
-                <p>Проектирование логики и интерфейсов. Все задачи выполнены с применением современных стандартов JavaScript (ES6+), ООП и Async/Await.</p>
+        <section class="hero container section">
+            <div class="hero-content reveal">
+                <span class="badge">Full-Stack Developer 2026</span>
+                <h1>Цифровая <br><span class="text-gradient">Эстетика Кода</span></h1>
+                <p>Меня зовут Константин. Я проектирую интерфейсы, где чистая логика встречается с безупречным UX.</p>
+                <div class="social-hero">
+                    <a href="mailto:vestek70@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://wa.me/yournumber"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://github.com/yourprofile"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container section">
+            <h2 class="reveal">Технический Стек</h2>
+            <div class="bento-grid">
+                <div class="bento-item reveal">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h3>Frontend Core</h3>
+                    <p>Modern DOM API, асинхронные компоненты и Three.js визуализация.</p>
+                </div>
+                <div class="bento-item reveal accent-bento">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <h3>Software Design</h3>
+                    <p>Глубокое понимание ООП, паттернов проектирования и чистой архитектуры.</p>
+                </div>
+                <div class="bento-item reveal">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h3>UX/UI Strategy</h3>
+                    <p>Создание удобных путей пользователя и адаптивных интерфейсов.</p>
+                </div>
             </div>
         </section>
 
         <section id="lab" class="container section">
-            <h2 class="reveal">Интерактивная Лаборатория</h2>
-            <div class="lab-grid">
-                
-                <div class="widget reveal">
-                    <div class="widget-head"><i class="fa-solid fa-graduation-cap"></i> <h3>Проверка баллов</h3></div>
-                    <div class="widget-body">
-                        <input type="number" id="gradeIn" placeholder="Балл студента">
-                        <button onclick="app.checkGrade()">Проверить</button>
-                        <div id="gradeRes" class="feedback"></div>
-                    </div>
-                </div>
-
-                <div class="widget reveal">
-                    <div class="widget-head"><i class="fa-solid fa-tags"></i> <h3>Расчет скидки</h3></div>
-                    <div class="widget-body">
-                        <input type="number" id="priceIn" placeholder="Цена">
-                        <input type="number" id="discIn" placeholder="Скидка %">
-                        <button onclick="app.calcDiscount()">Рассчитать</button>
-                        <div id="discRes" class="feedback"></div>
-                    </div>
-                </div>
-
-                <div class="widget reveal">
-                    <div class="widget-head"><i class="fa-solid fa-calculator"></i> <h3>Арифметика</h3></div>
-                    <div class="widget-body">
-                        <div class="calc-row">
-                            <input type="number" id="n1" placeholder="A">
-                            <select id="op"><option>+</option><option>-</option><option>*</option><option>/</option></select>
-                            <input type="number" id="n2" placeholder="B">
+            <h2 class="reveal">Практическая Лаборатория</h2>
+            <p class="section-desc reveal">Ниже представлены интерактивные модули. Нажмите на модуль, чтобы открыть его интерфейс.</p>
+            
+            <div class="accordion-container reveal">
+                <details class="acc-card">
+                    <summary>
+                        <span class="acc-title"><i class="fa-solid fa-check-double"></i> Калькулятор баллов</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <input type="number" id="gradeIn" placeholder="Введите ваш балл">
+                            <button onclick="app.checkGrade()">Проверить статус</button>
+                            <div id="gradeRes" class="res-box"></div>
                         </div>
-                        <button onclick="app.basicCalc()">Вычислить</button>
-                        <div id="calcRes" class="feedback"></div>
                     </div>
-                </div>
+                </details>
 
-                <div class="widget reveal ttt-container">
-                    <div class="widget-head"><i class="fa-solid fa-gamepad"></i> <h3>Jogo da Velha</h3></div>
-                    <div class="widget-body">
-                        <div id="tttBoard" class="ttt-mini-grid">
-                            <div class="cell" data-i="0"></div><div class="cell" data-i="1"></div><div class="cell" data-i="2"></div>
-                            <div class="cell" data-i="3"></div><div class="cell" data-i="4"></div><div class="cell" data-i="5"></div>
-                            <div class="cell" data-i="6"></div><div class="cell" data-i="7"></div><div class="cell" data-i="8"></div>
+                <details class="acc-card">
+                    <summary>
+                        <span class="acc-title"><i class="fa-solid fa-gamepad"></i> Игра «Крестики-нолики»</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <div id="tttBoard" class="ttt-grid">
+                                <div class="cell" data-i="0"></div><div class="cell" data-i="1"></div><div class="cell" data-i="2"></div>
+                                <div class="cell" data-i="3"></div><div class="cell" data-i="4"></div><div class="cell" data-i="5"></div>
+                                <div class="cell" data-i="6"></div><div class="cell" data-i="7"></div><div class="cell" data-i="8"></div>
+                            </div>
+                            <button class="btn-secondary" onclick="app.resetTTT()">Сбросить игру</button>
                         </div>
-                        <button class="btn-sm" onclick="app.resetTTT()">Сброс</button>
                     </div>
-                </div>
+                </details>
 
-                <div class="widget reveal">
-                    <div class="widget-head"><i class="fa-solid fa-list-check"></i> <h3>Список дел</h3></div>
-                    <div class="widget-body">
-                        <div class="todo-input-row">
-                            <input type="text" id="todoIn" placeholder="Что сделать?">
-                            <button onclick="app.addTodo()">+</button>
+                <details class="acc-card">
+                    <summary>
+                        <span class="acc-title"><i class="fa-solid fa-bolt"></i> Async Data Loader</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <p>Имитация работы с API через Async/Await</p>
+                            <button id="fetchBtn" onclick="app.fetchData()">Запросить данные</button>
+                            <div id="fetchStatus" class="res-box"></div>
                         </div>
-                        <ul id="todoList" class="custom-scroll-list"></ul>
                     </div>
-                </div>
+                </details>
 
-                <div class="widget reveal">
-                    <div class="widget-head"><i class="fa-solid fa-server"></i> <h3>Async Server</h3></div>
-                    <div class="widget-body">
-                        <button id="fetchBtn" onclick="app.fetchSim()">Загрузить данные</button>
-                        <div id="fetchStatus" class="log-text">Готов к работе</div>
-                    </div>
                 </div>
-
-            </div>
         </section>
 
         <section id="contact" class="container section">
-            <div class="contact-card reveal">
-                <h2>Связь со мной</h2>
-                <p>Готов к обсуждению интересных проектов.</p>
-                <div class="original-socials">
-                    <a href="mailto:vestek70@gmail.com" class="social-box mail">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>Email</span>
-                    </a>
-                    <a href="#" class="social-box wa">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <span>WhatsApp</span>
-                    </a>
-                    <a href="#" class="social-box gh">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
+            <div class="glass-footer reveal">
+                <h2>Обсудим ваш проект?</h2>
+                <div class="footer-grid">
+                    <div class="contact-info">
+                        <p>Я всегда открыт для новых идей и сложных технических вызовов.</p>
+                        <div class="social-links">
+                            <a href="mailto:vestek70@gmail.com"><i class="fa-solid fa-envelope"></i> Почта</a>
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                            <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <form id="contactForm" onsubmit="app.handleForm(event)">
+                        <input type="email" id="fEmail" placeholder="Ваш Email" required>
+                        <button type="submit">Отправить</button>
+                        <p id="formStatus"></p>
+                    </form>
                 </div>
             </div>
         </section>
