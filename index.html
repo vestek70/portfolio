@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konstantin Borisov | Full-Stack Portfolio</title>
-    
+    <title>Konstantin Borisov | Engineering Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
@@ -15,7 +14,7 @@
 
     <nav class="header">
         <div class="container nav-flex">
-            <a href="#" class="logo">KONSTANTIN BORISOV<span></span></a>
+            <a href="#" class="logo">KONSTANTIN<span> BORISOV</span></a>
             <ul class="nav-links">
                 <li><a href="#skills">Стек</a></li>
                 <li><a href="#lab">Лаборатория</a></li>
@@ -29,7 +28,7 @@
             <div class="hero-content reveal">
                 <span class="badge">Full-Stack Developer 2026</span>
                 <h1>Цифровая <br><span class="text-gradient">Эстетика Кода</span></h1>
-                <p>Меня зовут Константин. Я проектирую интерфейсы, где чистая логика встречается с безупречным UX.</p>
+                <p>Проектирую интерфейсы, где чистая логика встречается с безупречным UX.</p>
             </div>
         </section>
 
@@ -37,16 +36,19 @@
             <h2 class="reveal">Технический Стек</h2>
             <div class="bento-grid">
                 <div class="bento-item reveal">
+                    <i class="fas fa-code bento-icon"></i>
                     <h3>Frontend Core</h3>
                     <p>Modern DOM API, асинхронные компоненты и Three.js визуализация.</p>
                 </div>
                 <div class="bento-item reveal accent-bento">
+                    <i class="fas fa-layer-group bento-icon"></i>
                     <h3>Software Design</h3>
                     <p>Глубокое понимание ООП, паттернов проектирования и чистой архитектуры.</p>
                 </div>
                 <div class="bento-item reveal">
-                    <h3>UX/UI Strategy</h3>
-                    <p>Создание удобных путей пользователя и адаптивных интерфейсов.</p>
+                    <i class="fas fa-vial bento-icon"></i>
+                    <h3>QA & Logic</h3>
+                    <p>Комплексная валидация данных и алгоритмические решения задач.</p>
                 </div>
             </div>
         </section>
@@ -54,69 +56,156 @@
         <section id="lab" class="container section">
             <h2 class="reveal">Практическая Лаборатория</h2>
             <div class="accordion-container reveal">
+
                 <details class="acc-card">
-                    <summary>
-                        <span class="acc-title">Калькулятор баллов</span>
-                        <span class="arrow">▼</span>
-                    </summary>
+                    <summary><span>1. Калькулятор одобрения</span><i class="fas fa-plus"></i></summary>
                     <div class="acc-content">
                         <div class="widget-ui">
-                            <input type="number" id="gradeIn" placeholder="Введите ваш балл">
-                            <button onclick="app.checkGrade()">Проверить статус</button>
-                            <div id="gradeRes" class="res-box"></div>
+                            <input type="number" id="gradeIn" placeholder="Введите оценку студента">
+                            <button onclick="app.checkGrade()">Проверить</button>
+                            <p id="gradeRes" class="res-box"></p>
                         </div>
                     </div>
                 </details>
 
                 <details class="acc-card">
-                    <summary>
-                        <span class="acc-title">Игра «Крестики-нолики»</span>
-                        <span class="arrow">▼</span>
-                    </summary>
+                    <summary><span>2. Расчет скидки</span><i class="fas fa-plus"></i></summary>
                     <div class="acc-content">
                         <div class="widget-ui">
-                            <div id="tttBoard" class="ttt-grid">
+                            <div class="input-row">
+                                <input type="number" id="discPrice" placeholder="Цена">
+                                <input type="number" id="discPerc" placeholder="%">
+                            </div>
+                            <button onclick="app.calcDiscount()">Рассчитать</button>
+                            <p id="discRes" class="res-box"></p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary><span>3. Переключатель цветов</span><i class="fas fa-plus"></i></summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <div id="colorBox" class="preview-div">Тестовый блок</div>
+                            <div class="btn-group">
+                                <button class="btn-mini" onclick="app.changeColor('red')">Red</button>
+                                <button class="btn-mini" onclick="app.changeColor('#00f2ff')">Cyan</button>
+                                <button class="btn-mini" onclick="app.changeColor('var(--glass-border)')">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary><span>4. Арифметика (Switch)</span><i class="fas fa-plus"></i></summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <div class="input-row"><input type="number" id="calcN1"><input type="number" id="calcN2"></div>
+                            <div class="btn-grid-mini">
+                                <button onclick="app.calc('+')">+</button><button onclick="app.calc('-')">-</button>
+                                <button onclick="app.calc('*')">*</button><button onclick="app.calc('/')">/</button>
+                            </div>
+                            <p id="calcRes" class="res-box"></p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary><span>5. Приветствие по времени</span><i class="fas fa-plus"></i></summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <input type="text" id="greetName" placeholder="Ваше имя">
+                            <input type="number" id="greetHour" placeholder="Час (0-23)">
+                            <button onclick="app.sayHello()">Поприветствовать</button>
+                            <p id="greetRes" class="res-box"></p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary><span>6. Игра «Крестики-нолики»</span><i class="fas fa-plus"></i></summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <div class="ttt-grid">
                                 <div class="cell" data-i="0"></div><div class="cell" data-i="1"></div><div class="cell" data-i="2"></div>
                                 <div class="cell" data-i="3"></div><div class="cell" data-i="4"></div><div class="cell" data-i="5"></div>
                                 <div class="cell" data-i="6"></div><div class="cell" data-i="7"></div><div class="cell" data-i="8"></div>
                             </div>
-                            <button class="btn-secondary" onclick="app.resetTTT()">Сбросить игру</button>
+                            <button class="btn-secondary" onclick="app.resetTTT()">Сбросить поле</button>
                         </div>
                     </div>
                 </details>
+
+                <details class="acc-card">
+                    <summary><span>7. Список дел (To-Do)</span><i class="fas fa-plus"></i></summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <div class="input-row">
+                                <input type="text" id="todoIn" placeholder="Новая задача">
+                                <button onclick="app.addTodo()">+</button>
+                            </div>
+                            <ul id="todoList" class="custom-list"></ul>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary><span>8. Валидация контактов</span><i class="fas fa-plus"></i></summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <input type="text" id="vName" placeholder="Имя">
+                            <input type="email" id="vEmail" placeholder="Email">
+                            <button onclick="app.validate()">Проверить</button>
+                            <p id="vRes" class="res-box"></p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary><span>9. ООП Управление авто</span><i class="fas fa-plus"></i></summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <button onclick="app.testOOP()">Запустить систему классов</button>
+                            <p id="oopRes" class="res-box"></p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary><span>10. Fetch данных (Async)</span><i class="fas fa-plus"></i></summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <button id="fetchBtn" onclick="app.fetchAsync()">Запросить данные</button>
+                            <p id="fetchRes" class="res-box"></p>
+                        </div>
+                    </div>
+                </details>
+
             </div>
         </section>
 
-        <section id="contact" class="container section">
+        <footer id="contact" class="container section">
             <div class="glass-footer reveal">
-                <h2>Обсудим ваш проект?</h2>
                 <div class="footer-grid">
-                    <div class="contact-info">
-                        <p>Я всегда открыт для новых идей и сложных технических вызовов.</p>
-                        
-                        <ul class="social-icon-list" aria-label="Social media">
-                            <li class="social-item">
-                                <a href="https://github.com/vestek70" target="_blank" rel="noreferrer noopener" title="GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="social-svg" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                                </a>
-                            </li>
-                            <li class="social-item email-group">
-                                <a href="mailto:vestek70@gmail.com" title="Написать письмо">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="social-svg" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </a>
-                                <button class="copy-btn-inline" onclick="app.copyEmail()" id="copyBtn" title="Копировать Email">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg-small"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                                </button>
-                            </li>
-                        </ul>
+                    <div class="footer-info">
+                        <h2>Контакты</h2>
+                        <p>Готов к обсуждению новых проектов.</p>
+                        <div class="social-row">
+                            <a href="https://github.com/vestek70" target="_blank" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                            <div class="email-copy-wrapper" onclick="app.copyEmail()">
+                                <span id="emailStr">vestek70@gmail.com</span>
+                                <i class="far fa-copy"></i>
+                            </div>
+                        </div>
                     </div>
-                    
-                
-                        <p id="formStatus"></p>
+                    <form onsubmit="app.handleForm(event)" class="footer-form">
+                        <input type="email" placeholder="Ваш Email" required>
+                        <button type="submit">Отправить</button>
+                        <p id="formStatus" class="status-msg"></p>
                     </form>
                 </div>
             </div>
-        </section>
+        </footer>
     </main>
 
     <script src="app.js"></script>
