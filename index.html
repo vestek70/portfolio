@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konstantin Borisov | Full-Stack Portfolio</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <nav class="header">
+        <div class="container nav-flex">
+            <a href="#" class="logo">BORISOV<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#skills">Стек</a></li>
+                <li><a href="#lab">Лаборатория</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero container section">
+            <div class="hero-content reveal">
+                <span class="badge">Full-Stack Developer 2026</span>
+                <h1>Цифровая <br><span class="text-gradient">Эстетика Кода</span></h1>
+                <p>Меня зовут Константин. Я проектирую интерфейсы, где чистая логика встречается с безупречным UX.</p>
+                <div class="social-hero">
+                    <a href="mailto:vestek70@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://wa.me/yournumber"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://github.com/yourprofile"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container section">
+            <h2 class="reveal">Технический Стек</h2>
+            <div class="bento-grid">
+                <div class="bento-item reveal">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h3>Frontend Core</h3>
+                    <p>Modern DOM API, асинхронные компоненты и Three.js визуализация.</p>
+                </div>
+                <div class="bento-item reveal accent-bento">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <h3>Software Design</h3>
+                    <p>Глубокое понимание ООП, паттернов проектирования и чистой архитектуры.</p>
+                </div>
+                <div class="bento-item reveal">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h3>UX/UI Strategy</h3>
+                    <p>Создание удобных путей пользователя и адаптивных интерфейсов.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lab" class="container section">
+            <h2 class="reveal">Практическая Лаборатория</h2>
+            <p class="section-desc reveal">Ниже представлены интерактивные модули. Нажмите на модуль, чтобы открыть его интерфейс.</p>
+            
+            <div class="accordion-container reveal">
+                <details class="acc-card">
+                    <summary>
+                        <span class="acc-title"><i class="fa-solid fa-check-double"></i> Калькулятор баллов</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <input type="number" id="gradeIn" placeholder="Введите ваш балл">
+                            <button onclick="app.checkGrade()">Проверить статус</button>
+                            <div id="gradeRes" class="res-box"></div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary>
+                        <span class="acc-title"><i class="fa-solid fa-gamepad"></i> Игра «Крестики-нолики»</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <div id="tttBoard" class="ttt-grid">
+                                <div class="cell" data-i="0"></div><div class="cell" data-i="1"></div><div class="cell" data-i="2"></div>
+                                <div class="cell" data-i="3"></div><div class="cell" data-i="4"></div><div class="cell" data-i="5"></div>
+                                <div class="cell" data-i="6"></div><div class="cell" data-i="7"></div><div class="cell" data-i="8"></div>
+                            </div>
+                            <button class="btn-secondary" onclick="app.resetTTT()">Сбросить игру</button>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="acc-card">
+                    <summary>
+                        <span class="acc-title"><i class="fa-solid fa-bolt"></i> Async Data Loader</span>
+                        <i class="fa-solid fa-chevron-down arrow"></i>
+                    </summary>
+                    <div class="acc-content">
+                        <div class="widget-ui">
+                            <p>Имитация работы с API через Async/Await</p>
+                            <button id="fetchBtn" onclick="app.fetchData()">Запросить данные</button>
+                            <div id="fetchStatus" class="res-box"></div>
+                        </div>
+                    </div>
+                </details>
+
+                </div>
+        </section>
+
+        <section id="contact" class="container section">
+            <div class="glass-footer reveal">
+                <h2>Обсудим ваш проект?</h2>
+                <div class="footer-grid">
+                    <div class="contact-info">
+                        <p>Я всегда открыт для новых идей и сложных технических вызовов.</p>
+                        <div class="social-links">
+                            <a href="mailto:vestek70@gmail.com"><i class="fa-solid fa-envelope"></i> Почта</a>
+                            <a href="#"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                            <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <form id="contactForm" onsubmit="app.handleForm(event)">
+                        <input type="email" id="fEmail" placeholder="Ваш Email" required>
+                        <button type="submit">Отправить</button>
+                        <p id="formStatus"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
