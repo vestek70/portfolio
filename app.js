@@ -1,83 +1,88 @@
 class PortfolioApp {
     constructor() {
         this.board = Array(9).fill(null);
-        this.currentPlayer = 'X';
+        this.player = 'X';
         this.initTTT();
     }
 
-    // 1. Калькулятор баллов
+    // 1. Баллы
     checkGrade() {
-        const val = document.getElementById('gradeIn').value;
+        const v = document.getElementById('gradeIn').value;
         const res = document.getElementById('gradeRes');
-        if(!val) return;
-        const isPassed = val >= 60;
-        res.innerHTML = isPassed ? 
-            `<span style="color:var(--primary)">✅ Статус: Одобрен</span>` : 
-            `<span style="color:#ff4d4d">❌ Статус: Недостаточно баллов</span>`;
+        if (!v) return;
+        res.innerText = v >= 60 ? "✅ Одобрен" : "❌ Не одобрен";
+        res.style.color = v >= 60 ? "var(--primary)" : "#ff4d4d";
     }
 
-    // 2. Крестики-нолики
+    // 2. Скидки
+    calcDiscount() {
+        const p = parseFloat(document.getElementById('priceIn').value);
+        const d = parseFloat(document.getElementById('discIn').value);
+        const res = document.getElementById('discRes');
+        if (isNaN(p) || isNaN(d) || p < 0 || d < 0 || d > 100) {
+            res.innerText = "Ошибка данных";
+            return;
+        }
+        const final = p - (p * (d / 100));
+        res.innerText = `Итог: ${final.toFixed(2)} ₽`;
+    }
+
+    // 3. Базовая арифметика (Switch Case)
+    basicCalc() {
+        const a = parseFloat(document.getElementById('n1').value);
+        const b = parseFloat(document.getElementById('n2').value);
+        const op = document.getElementById('op').value;
+        const res = document.getElementById('calcRes');
+        let val;
+
+        switch(op) {
+            case '+': val = a + b; break;
+            case '-': val = a - b; break;
+            case '*': val = a * b; break;
+            case '/': val = b !== 0 ? a / b : "Error 0"; break;
+            default: val = 0;
+        }
+        res.innerText = `Результат: ${val}`;
+    }
+
+    // 4. Крестики-нолики
     initTTT() {
-        document.querySelectorAll('.cell').forEach(cell => {
-            cell.onclick = (e) => {
-                const idx = e.target.dataset.i;
-                if(this.board[idx] || this.checkWinner()) return;
-                
-                this.board[idx] = this.currentPlayer;
-                e.target.innerText = this.currentPlayer;
-                e.target.style.color = this.currentPlayer === 'X' ? 'var(--primary)' : 'var(--accent)';
-                
-                if(this.checkWinner()) {
-                    setTimeout(() => alert(`Победитель: ${this.currentPlayer}`), 10);
-                } else {
-                    this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
-                }
-            };
+        document.querySelectorAll('.cell').forEach(c => {
+            c.onclick = (e) => {
+                const i = e.target.dataset.i;
+                if (this.board[i] || this.checkWin()) return;
+                this.board[i] = this.player;
+                e.target.innerText = this.player;
+                this.player = this.player === 'X' ? 'O' : 'X';
+            }
         });
     }
-
-    checkWinner() {
-        const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-        return wins.some(comb => 
-            this.board[comb[0]] && 
-            this.board[comb[0]] === this.board[comb[1]] && 
-            this.board[comb[0]] === this.board[comb[2]]
-        );
+    checkWin() {
+        const w = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+        return w.some(l => this.board[l[0]] && this.board[l[0]] === this.board[l[1]] && this.board[l[0]] === this.board[l[2]]);
     }
-
     resetTTT() {
         this.board.fill(null);
-        this.currentPlayer = 'X';
         document.querySelectorAll('.cell').forEach(c => c.innerText = "");
+        this.player = 'X';
     }
 
-    // 3. Асинхронная загрузка
-    async fetchData() {
-        const status = document.getElementById('fetchStatus');
-        const btn = document.getElementById('fetchBtn');
-        btn.disabled = true;
-        status.innerText = "⏳ Подключение к серверу...";
-        
-        await new Promise(res => setTimeout(res, 1500));
-        
-        status.innerHTML = `<span style="color:var(--primary)">✅ Данные успешно синхронизированы!</span>`;
-        btn.disabled = false;
+    // 5. To-Do List
+    addTodo() {
+        const i = document.getElementById('todoIn');
+        if (!i.value) return;
+        const li = document.createElement('li');
+        li.innerText = `• ${i.value}`;
+        document.getElementById('todoList').appendChild(li);
+        i.value = "";
     }
 
-    // 4. Валидация формы
-    handleForm(e) {
-        e.preventDefault();
-        const email = document.getElementById('fEmail').value;
-        const status = document.getElementById('formStatus');
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if(re.test(email)) {
-            status.innerText = "Спасибо! Сообщение отправлено.";
-            status.style.color = "var(--primary)";
-        } else {
-            status.innerText = "Ошибка: неверный формат почты.";
-            status.style.color = "#ff4d4d";
-        }
+    // 6. Async Fetch
+    async fetchSim() {
+        const s = document.getElementById('fetchStatus');
+        s.innerText = "⏳ Загрузка...";
+        await new Promise(r => setTimeout(r, 1500));
+        s.innerText = "✅ Данные получены";
     }
 }
 
