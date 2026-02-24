@@ -308,7 +308,7 @@ Este projeto é de código aberto e fornecido como exemplo educacional.
 ## 👋 Contato
 
 **Konstantin**
-- GitHub: https://github.com/konstantin-dev
+- GitHub: https://github.com/vestek70
 - LinkedIn: www.linkedin.com/in/konstantin-undefined-a235283b2
 - Email: vestek70@gmail.com
 
