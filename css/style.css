@@ -1176,6 +1176,247 @@ select:focus {
     }
 }
 
+/* === SYSTEM ARCHITECTURE SECTION === */
+.system-architecture {
+    background: linear-gradient(180deg, rgba(0, 217, 255, 0.05), rgba(112, 0, 255, 0.03));
+}
+
+.architecture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 217, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.architecture-diagram {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    min-height: 500px;
+    filter: drop-shadow(0 20px 60px rgba(0, 217, 255, 0.15));
+}
+
+/* Architecture Nodes */
+.arch-node {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
+}
+
+.arch-node:hover {
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.6));
+}
+
+.arch-node-1 rect {
+    animation: nodeGlow1 2s ease-in-out infinite;
+}
+
+.arch-node-2 rect {
+    animation: nodeGlow2 2s ease-in-out infinite 0.2s;
+}
+
+.arch-node-3 rect {
+    animation: nodeGlow3 2s ease-in-out infinite 0.4s;
+}
+
+.arch-node-4 rect {
+    animation: nodeGlow4 2s ease-in-out infinite 0.6s;
+}
+
+.arch-node-5 rect {
+    animation: nodeGlow5 2s ease-in-out infinite 0.8s;
+}
+
+/* Arrows */
+.arch-arrow {
+    stroke-linecap: round;
+    animation: flowPulse 2s ease-in-out infinite;
+}
+
+.arch-arrow-1 {
+    animation-delay: 0s;
+}
+
+.arch-arrow-2 {
+    animation-delay: 0.2s;
+}
+
+.arch-arrow-3 {
+    animation-delay: 0.4s;
+}
+
+.arch-arrow-4 {
+    animation-delay: 0.6s;
+}
+
+/* Flow dots */
+.flow-dot {
+    animation: flowMove 2s ease-in-out infinite;
+}
+
+.flow-dot-1 {
+    animation-delay: 0s;
+}
+
+.flow-dot-2 {
+    animation-delay: 0.2s;
+}
+
+.flow-dot-3 {
+    animation-delay: 0.4s;
+}
+
+.flow-dot-4 {
+    animation-delay: 0.6s;
+}
+
+/* Architecture Legend */
+.architecture-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 217, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+    border-color: var(--primary);
+    background: rgba(0, 217, 255, 0.05);
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-color.browser {
+    background: #00f2ff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+.legend-color.frontend {
+    background: #7000ff;
+    box-shadow: 0 0 10px rgba(112, 0, 255, 0.5);
+}
+
+.legend-color.backend {
+    background: #00ff88;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.legend-color.database {
+    background: #ff006e;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.legend-color.ai {
+    background: #7000ff;
+    box-shadow: 0 0 10px rgba(112, 0, 255, 0.5);
+}
+
+.legend-item span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Architecture Animations */
+@keyframes nodeGlow1 {
+    0%, 100% {
+        stroke-width: 2;
+        filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3));
+    }
+    50% {
+        stroke-width: 3;
+        filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.6));
+    }
+}
+
+@keyframes nodeGlow2 {
+    0%, 100% {
+        stroke-width: 2;
+        filter: drop-shadow(0 0 10px rgba(112, 0, 255, 0.3));
+    }
+    50% {
+        stroke-width: 3;
+        filter: drop-shadow(0 0 20px rgba(112, 0, 255, 0.6));
+    }
+}
+
+@keyframes nodeGlow3 {
+    0%, 100% {
+        stroke-width: 2;
+        filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+    }
+    50% {
+        stroke-width: 3;
+        filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+    }
+}
+
+@keyframes nodeGlow4 {
+    0%, 100% {
+        stroke-width: 2;
+        filter: drop-shadow(0 0 10px rgba(255, 0, 110, 0.3));
+    }
+    50% {
+        stroke-width: 3;
+        filter: drop-shadow(0 0 20px rgba(255, 0, 110, 0.6));
+    }
+}
+
+@keyframes nodeGlow5 {
+    0%, 100% {
+        stroke-width: 2;
+        filter: drop-shadow(0 0 10px rgba(112, 0, 255, 0.3));
+    }
+    50% {
+        stroke-width: 3;
+        filter: drop-shadow(0 0 20px rgba(112, 0, 255, 0.6));
+    }
+}
+
+@keyframes flowPulse {
+    0%, 100% {
+        stroke-width: 3;
+        opacity: 0.6;
+    }
+    50% {
+        stroke-width: 4;
+        opacity: 1;
+    }
+}
+
+@keyframes flowMove {
+    0%, 100% {
+        r: 3;
+        opacity: 0.6;
+    }
+    50% {
+        r: 5;
+        opacity: 1;
+    }
+}
+
 /* === CONTACT SECTION === */
 .contact {
     background: linear-gradient(180deg, rgba(0, 217, 255, 0.05), transparent);
@@ -1348,6 +1589,14 @@ select:focus {
     .performance-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .architecture-diagram {
+        min-height: 400px;
+    }
+
+    .architecture-legend {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1384,6 +1633,18 @@ select:focus {
     }
 
     .performance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .architecture-container {
+        padding: 1.5rem;
+    }
+
+    .architecture-diagram {
+        min-height: 450px;
+    }
+
+    .architecture-legend {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1445,5 +1706,17 @@ select:focus {
 
     .performance-grid {
         grid-template-columns: 1fr;
+    }
+
+    .architecture-diagram {
+        min-height: 300px;
+    }
+
+    .architecture-legend {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-item {
+        font-size: 0.85rem;
     }
 }
