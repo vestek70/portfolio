@@ -532,6 +532,61 @@ class ServerSimulation {
 }
 
 // ============================================
+// AI TYPING ANIMATION
+// ============================================
+class AITypingAnimation {
+    constructor() {
+        this.texts = [
+            'Analisando seu portfólio...',
+            'Processando projetos e experiências...',
+            'Gerando insights com LLM...',
+            'Pronto para conversar!'
+        ];
+        this.currentTextIndex = 0;
+    }
+
+    async startAnimation() {
+        const containers = document.querySelectorAll('.typing-container');
+        
+        containers.forEach((container, index) => {
+            setTimeout(() => {
+                this.animateContainer(container);
+            }, index * 300);
+        });
+    }
+
+    async animateContainer(container) {
+        const typingText = container.querySelector('.typing-text');
+        const texts = this.texts;
+        let textIndex = 0;
+
+        const loop = async () => {
+            const text = texts[textIndex % texts.length];
+            
+            // Type out
+            for (let i = 0; i <= text.length; i++) {
+                typingText.textContent = text.substring(0, i);
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+
+            // Wait
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // Delete
+            for (let i = text.length; i >= 0; i--) {
+                typingText.textContent = text.substring(0, i);
+                await new Promise(resolve => setTimeout(resolve, 30));
+            }
+
+            textIndex++;
+            await loop();
+        };
+
+        loop();
+    }
+}
+
+// ============================================
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -539,6 +594,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize Tic-Tac-Toe listeners
     app.modules.tictactoe.initializeBoardListeners();
+
+    // Initialize AI typing animations
+    const aiAnimator = new AITypingAnimation();
+    aiAnimator.startAnimation();
     
     console.log('✅ Aplicação inicializada com sucesso!');
 });
