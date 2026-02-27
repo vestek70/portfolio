@@ -25,6 +25,7 @@
                 <li><a href="#framework-showcase">Frameworks</a></li>
                 <li><a href="#performance-engineering">Performance</a></li>
                 <li><a href="#system-architecture">Architecture</a></li>
+                <li><a href="#engineering-playground">Playground</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
@@ -895,6 +896,73 @@
                 </div>
             </div>
         </section>
+
+        <!-- Engineering Playground Section -->
+        <section id="engineering-playground" class="engineering-playground section">
+            <div class="container">
+                <h2 class="section-title">Engineering Playground</h2>
+                <p class="section-subtitle">Experimentos interativos de frontend</p>
+
+                <div class="playground-grid">
+                    <!-- Web Animations Card -->
+                    <div class="playground-card reveal-card">
+                        <div class="playground-icon">🎬</div>
+                        <h3 class="playground-title">Web Animations</h3>
+                        <p class="playground-desc">Animações CSS e JavaScript avançadas com performance otimizada.</p>
+                        <button class="btn btn-primary playground-btn" onclick="openPlaygroundModal(this, 'animations')">
+                            Explorar
+                        </button>
+                    </div>
+
+                    <!-- Canvas Experiments Card -->
+                    <div class="playground-card reveal-card">
+                        <div class="playground-icon">🎨</div>
+                        <h3 class="playground-title">Canvas Experiments</h3>
+                        <p class="playground-desc">Desenhos e gráficos 2D com Canvas API. Fractais e visualizações.</p>
+                        <button class="btn btn-primary playground-btn" onclick="openPlaygroundModal(this, 'canvas')">
+                            Explorar
+                        </button>
+                    </div>
+
+                    <!-- WebGPU Particles Card -->
+                    <div class="playground-card reveal-card">
+                        <div class="playground-icon">✨</div>
+                        <h3 class="playground-title">WebGPU Particles</h3>
+                        <p class="playground-desc">Simulação de partículas com WebGPU para renderização de alta performance.</p>
+                        <button class="btn btn-primary playground-btn" onclick="openPlaygroundModal(this, 'webgpu')">
+                            Explorar
+                        </button>
+                    </div>
+
+                    <!-- UI Experiments Card -->
+                    <div class="playground-card reveal-card">
+                        <div class="playground-icon">🧩</div>
+                        <h3 class="playground-title">UI Experiments</h3>
+                        <p class="playground-desc">Componentes UI inovadores e padrões de interação avançados.</p>
+                        <button class="btn btn-primary playground-btn" onclick="openPlaygroundModal(this, 'ui')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Playground Modal -->
+        <div class="playground-modal" id="playgroundModal">
+            <div class="modal-overlay" onclick="closePlaygroundModal()"></div>
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">Playground</h2>
+                    <button class="modal-close" onclick="closePlaygroundModal()">✕</button>
+                </div>
+                <div class="modal-content" id="modalContent">
+                    <!-- Content will be injected here -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="closePlaygroundModal()">Fechar</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Contact Section -->
         <section id="contact" class="contact section">

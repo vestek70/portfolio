@@ -587,6 +587,161 @@ class AITypingAnimation {
 }
 
 // ============================================
+// ENGINEERING PLAYGROUND MODAL
+// ============================================
+const playgroundContent = {
+    animations: {
+        title: 'Web Animations',
+        html: `
+            <div class="modal-preview">
+                <div class="preview-content">
+                    <h3>🎬 Web Animations API</h3>
+                    <p>Experimentos com animações avançadas usando CSS e JavaScript.</p>
+                    <ul>
+                        <li>Transições suaves com easing customizado</li>
+                        <li>Animações de scroll com Intersection Observer</li>
+                        <li>Morph animations com SVG</li>
+                        <li>Parallax effect com requestAnimationFrame</li>
+                    </ul>
+                </div>
+                <div class="preview-demo">
+                    <div class="preview-content">
+                        <p style="color: var(--primary); font-size: 3rem; margin: 0;">✨</p>
+                        <p>Animações em tempo real</p>
+                    </div>
+                </div>
+                <div class="preview-code">
+                    <code>// Smooth scroll animation
+element.animate([
+  { opacity: 0, transform: 'translateY(20px)' },
+  { opacity: 1, transform: 'translateY(0)' }
+], { duration: 600, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' });</code>
+                </div>
+            </div>
+        `
+    },
+    canvas: {
+        title: 'Canvas Experiments',
+        html: `
+            <div class="modal-preview">
+                <div class="preview-content">
+                    <h3>🎨 Canvas 2D API</h3>
+                    <p>Experimentos com desenho e gráficos 2D avançados.</p>
+                    <ul>
+                        <li>Fractais e padrões matemáticos</li>
+                        <li>Simulações de física (partículas, gravidade)</li>
+                        <li>Visualização de dados em tempo real</li>
+                        <li>Desenho interativo com mouse tracking</li>
+                    </ul>
+                </div>
+                <div class="preview-demo">
+                    <div class="preview-content">
+                        <p style="color: var(--primary); font-size: 3rem; margin: 0;">🖼️</p>
+                        <p>Renderização de gráficos 2D</p>
+                    </div>
+                </div>
+                <div class="preview-code">
+                    <code>// Draw animated circle
+ctx.beginPath();
+ctx.arc(x, y, radius, 0, Math.PI * 2);
+ctx.fillStyle = 'rgba(0, 242, 255, 0.3)';
+ctx.fill();</code>
+                </div>
+            </div>
+        `
+    },
+    webgpu: {
+        title: 'WebGPU Particles',
+        html: `
+            <div class="modal-preview">
+                <div class="preview-content">
+                    <h3>✨ WebGPU Computing</h3>
+                    <p>Simulação de partículas de alta performance com compute shaders.</p>
+                    <ul>
+                        <li>Milhões de partículas com interação GPU</li>
+                        <li>Compute shaders para processamento paralelo</li>
+                        <li>Renderização 3D com WebGPU</li>
+                        <li>Performance otimizada para dispositivos modernos</li>
+                    </ul>
+                </div>
+                <div class="preview-demo">
+                    <div class="preview-content">
+                        <p style="color: #00ff88; font-size: 3rem; margin: 0;">🚀</p>
+                        <p>GPU-powered rendering</p>
+                    </div>
+                </div>
+                <div class="preview-code">
+                    <code>// WebGPU compute shader
+@compute @workgroup_size(256)
+fn main(@builtin(global_invocation_id) global_id: vec3&lt;u32&gt;) {
+    let idx = global_id.x;
+    // Particle physics computation
+}</code>
+                </div>
+            </div>
+        `
+    },
+    ui: {
+        title: 'UI Experiments',
+        html: `
+            <div class="modal-preview">
+                <div class="preview-content">
+                    <h3>🧩 Componentes Avançados</h3>
+                    <p>Experimentos com padrões de UI inovadores e interações avançadas.</p>
+                    <ul>
+                        <li>Glassmorphic UI components</li>
+                        <li>Micro-interactions e gestures</li>
+                        <li>Drag and drop com animações</li>
+                        <li>Adaptive layouts responsivos</li>
+                    </ul>
+                </div>
+                <div class="preview-demo">
+                    <div class="preview-content">
+                        <p style="color: #ff006e; font-size: 3rem; margin: 0;">💎</p>
+                        <p>UI/UX interativa</p>
+                    </div>
+                </div>
+                <div class="preview-code">
+                    <code>// Glassmorphic card
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}</code>
+                </div>
+            </div>
+        `
+    }
+};
+
+function openPlaygroundModal(button, type) {
+    const modal = document.getElementById('playgroundModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    
+    if (playgroundContent[type]) {
+        const content = playgroundContent[type];
+        modalTitle.textContent = content.title;
+        modalContent.innerHTML = content.html;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closePlaygroundModal() {
+    const modal = document.getElementById('playgroundModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closePlaygroundModal();
+    }
+});
+
+// ============================================
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
