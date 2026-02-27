@@ -1695,6 +1695,176 @@ select:focus {
     }
 }
 
+/* === DEVELOPMENT WORKFLOW SECTION === */
+.development-workflow {
+    background: linear-gradient(180deg, rgba(0, 217, 255, 0.05), rgba(112, 0, 255, 0.03));
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding: 2rem 0;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius: 50px;
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row;
+    text-align: left;
+}
+
+.timeline-marker {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.marker-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    border-radius: 50%;
+    border: 2px solid var(--glass-border);
+    position: relative;
+    z-index: 12;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .marker-icon {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+    transform: scale(1.15);
+}
+
+.marker-dot {
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    z-index: 11;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.6);
+}
+
+.timeline-content {
+    flex: 1;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.1), transparent);
+    left: -100%;
+    transition: left 0.5s ease;
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+.timeline-item:hover .timeline-content {
+    border-color: var(--primary);
+    background: rgba(0, 217, 255, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 217, 255, 0.1);
+}
+
+.timeline-content::before {
+    left: 100%;
+}
+
+.timeline-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.timeline-description {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.timeline-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.timeline-items li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) .timeline-items li {
+    padding-left: 0;
+    padding-right: 1.2rem;
+}
+
+.timeline-items li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.timeline-item:nth-child(odd) .timeline-items li::before {
+    right: 0;
+    left: auto;
+}
+
 /* === CONTACT SECTION === */
 .contact {
     background: linear-gradient(180deg, rgba(0, 217, 255, 0.05), transparent);
@@ -1879,6 +2049,28 @@ select:focus {
     .playground-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .timeline-container {
+        padding: 2rem 1rem;
+    }
+
+    .timeline-item {
+        gap: 1.5rem;
+    }
+
+    .marker-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .timeline-content {
+        padding: 1.5rem;
+    }
+
+    .timeline-title {
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1939,7 +2131,42 @@ select:focus {
         max-height: 90vh;
     }
 
-    .calc-inputs {
+    .timeline-container::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column !important;
+        text-align: left !important;
+        margin-left: 80px;
+        gap: 1rem;
+    }
+
+    .timeline-marker {
+        position: absolute;
+        left: -60px;
+        top: 0;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .marker-dot {
+        top: 15px;
+        left: 24px;
+    }
+
+    .timeline-items li {
+        padding-left: 1.2rem !important;
+        padding-right: 0 !important;
+    }
+
+    .timeline-items li::before {
+        left: 0 !important;
+        right: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
         grid-template-columns: 1fr;
     }
 
@@ -2013,6 +2240,51 @@ select:focus {
 
     .playground-grid {
         grid-template-columns: 1fr;
+    }
+
+    .timeline-container {
+        padding: 2rem 0;
+    }
+
+    .timeline-container::before {
+        left: 15px;
+    }
+
+    .timeline-item {
+        margin-left: 60px;
+    }
+
+    .timeline-marker {
+        left: -50px;
+    }
+
+    .marker-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .marker-dot {
+        width: 10px;
+        height: 10px;
+        top: 12px;
+        left: 15px;
+    }
+
+    .timeline-content {
+        padding: 1.2rem;
+    }
+
+    .timeline-title {
+        font-size: 1rem;
+    }
+
+    .timeline-description {
+        font-size: 0.9rem;
+    }
+
+    .timeline-items li {
+        font-size: 0.85rem;
     }
 
     .modal-container {
