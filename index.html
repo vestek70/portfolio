@@ -206,9 +206,9 @@
                                 <div class="color-box" id="colorBox3">Box 3</div>
                             </div>
                             <div class="button-group">
-                                <button class="btn btn-color" data-color="#FF6B9D">Rosa</button>
-                                <button class="btn btn-color" data-color="#00D9FF">Ciano</button>
-                                <button class="btn btn-color" data-color="#A0FF00">Verde</button>
+                                <button class="btn btn-color" data-color="#FF6B9D" onclick="app.modules.colorSwitcher.setColor('#FF6B9D')">Rosa</button>
+                                <button class="btn btn-color" data-color="#00D9FF" onclick="app.modules.colorSwitcher.setColor('#00D9FF')">Ciano</button>
+                                <button class="btn btn-color" data-color="#A0FF00" onclick="app.modules.colorSwitcher.setColor('#A0FF00')">Verde</button>
                                 <button class="btn btn-secondary" onclick="app.modules.colorSwitcher.reset()">Reset</button>
                             </div>
                         </div>
@@ -846,7 +846,7 @@
                 <p class="section-subtitle">Stack completo de desenvolvimento full-stack</p>
 
                 <div class="architecture-container">
-                    <svg class="architecture-diagram" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="architecture-diagram" viewBox="0 0 800 650" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
                         <!-- Defs for gradients and markers -->
                         <defs>
                             <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -854,7 +854,7 @@
                                 <stop offset="100%" style="stop-color:#00ff88;stop-opacity:1" />
                             </linearGradient>
                             
-                            <marker id="arrowhead-flow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <marker id="arrowhead-flow" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto">
                                 <polygon points="0 0, 10 3, 0 6" fill="url(#flowGradient)" />
                             </marker>
 
@@ -876,55 +876,55 @@
                         </g>
 
                         <!-- Arrow 1 -->
-                        <line x1="140" y1="130" x2="140" y2="170" stroke="url(#flowGradient)" stroke-width="3" marker-end="url(#arrowhead-flow)" class="arch-arrow arch-arrow-1"/>
-                        <circle cx="140" cy="150" r="3" fill="#00f2ff" class="flow-dot flow-dot-1"/>
+                        <line x1="140" y1="135" x2="140" y2="180" stroke="url(#flowGradient)" stroke-width="3" marker-end="url(#arrowhead-flow)" class="arch-arrow arch-arrow-1"/>
+                        <circle cx="140" cy="158" r="3" fill="#00f2ff" class="flow-dot flow-dot-1"/>
 
                         <!-- Frontend App -->
                         <g class="arch-node arch-node-2">
-                            <rect x="50" y="170" width="180" height="100" rx="12" fill="rgba(112,0,255,0.1)" stroke="rgba(112,0,255,0.5)" stroke-width="2"/>
-                            <text x="140" y="205" text-anchor="middle" font-size="18" font-weight="bold" fill="#7000ff">⚛️</text>
-                            <text x="140" y="230" text-anchor="middle" font-size="14" font-weight="600" fill="#ffffff">Frontend App</text>
-                            <text x="140" y="250" text-anchor="middle" font-size="11" fill="#a0a0a0">React, HTML5, CSS3, JS</text>
+                            <rect x="50" y="185" width="180" height="100" rx="12" fill="rgba(112,0,255,0.1)" stroke="rgba(112,0,255,0.5)" stroke-width="2"/>
+                            <text x="140" y="220" text-anchor="middle" font-size="18" font-weight="bold" fill="#7000ff">⚛️</text>
+                            <text x="140" y="245" text-anchor="middle" font-size="14" font-weight="600" fill="#ffffff">Frontend App</text>
+                            <text x="140" y="265" text-anchor="middle" font-size="11" fill="#a0a0a0">React, HTML5, CSS3, JS</text>
                         </g>
 
                         <!-- Arrow 2 -->
-                        <line x1="140" y1="270" x2="140" y2="310" stroke="url(#flowGradient)" stroke-width="3" marker-end="url(#arrowhead-flow)" class="arch-arrow arch-arrow-2"/>
-                        <circle cx="140" cy="290" r="3" fill="#00f2ff" class="flow-dot flow-dot-2"/>
+                        <line x1="140" y1="290" x2="140" y2="335" stroke="url(#flowGradient)" stroke-width="3" marker-end="url(#arrowhead-flow)" class="arch-arrow arch-arrow-2"/>
+                        <circle cx="140" cy="313" r="3" fill="#00f2ff" class="flow-dot flow-dot-2"/>
 
                         <!-- Node.js API -->
                         <g class="arch-node arch-node-3">
-                            <rect x="50" y="310" width="180" height="100" rx="12" fill="rgba(0,255,136,0.1)" stroke="rgba(0,255,136,0.5)" stroke-width="2"/>
-                            <text x="140" y="345" text-anchor="middle" font-size="18" font-weight="bold" fill="#00ff88">⚙️</text>
-                            <text x="140" y="370" text-anchor="middle" font-size="14" font-weight="600" fill="#ffffff">Node.js API</text>
-                            <text x="140" y="390" text-anchor="middle" font-size="11" fill="#a0a0a0">Express, REST, Auth</text>
+                            <rect x="50" y="340" width="180" height="100" rx="12" fill="rgba(0,255,136,0.1)" stroke="rgba(0,255,136,0.5)" stroke-width="2"/>
+                            <text x="140" y="375" text-anchor="middle" font-size="18" font-weight="bold" fill="#00ff88">⚙️</text>
+                            <text x="140" y="400" text-anchor="middle" font-size="14" font-weight="600" fill="#ffffff">Node.js API</text>
+                            <text x="140" y="420" text-anchor="middle" font-size="11" fill="#a0a0a0">Express, REST, Auth</text>
                         </g>
 
                         <!-- Arrow 3 -->
-                        <line x1="140" y1="410" x2="140" y2="450" stroke="url(#flowGradient)" stroke-width="3" marker-end="url(#arrowhead-flow)" class="arch-arrow arch-arrow-3"/>
-                        <circle cx="140" cy="430" r="3" fill="#00f2ff" class="flow-dot flow-dot-3"/>
+                        <line x1="140" y1="445" x2="140" y2="490" stroke="url(#flowGradient)" stroke-width="3" marker-end="url(#arrowhead-flow)" class="arch-arrow arch-arrow-3"/>
+                        <circle cx="140" cy="468" r="3" fill="#00f2ff" class="flow-dot flow-dot-3"/>
 
                         <!-- Database -->
                         <g class="arch-node arch-node-4">
-                            <rect x="50" y="450" width="180" height="100" rx="12" fill="rgba(255,0,110,0.1)" stroke="rgba(255,0,110,0.5)" stroke-width="2"/>
-                            <text x="140" y="485" text-anchor="middle" font-size="18" font-weight="bold" fill="#ff006e">🗄️</text>
-                            <text x="140" y="510" text-anchor="middle" font-size="14" font-weight="600" fill="#ffffff">Database</text>
-                            <text x="140" y="530" text-anchor="middle" font-size="11" fill="#a0a0a0">PostgreSQL, MongoDB</text>
+                            <rect x="50" y="495" width="180" height="100" rx="12" fill="rgba(255,0,110,0.1)" stroke="rgba(255,0,110,0.5)" stroke-width="2"/>
+                            <text x="140" y="530" text-anchor="middle" font-size="18" font-weight="bold" fill="#ff006e">🗄️</text>
+                            <text x="140" y="555" text-anchor="middle" font-size="14" font-weight="600" fill="#ffffff">Database</text>
+                            <text x="140" y="575" text-anchor="middle" font-size="11" fill="#a0a0a0">PostgreSQL, MongoDB</text>
                         </g>
 
                         <!-- Parallel LLM API (right side) -->
                         <g class="arch-node arch-node-5">
-                            <rect x="520" y="310" width="180" height="100" rx="12" fill="rgba(112,0,255,0.1)" stroke="rgba(112,0,255,0.5)" stroke-width="2"/>
-                            <text x="610" y="345" text-anchor="middle" font-size="18" font-weight="bold" fill="#7000ff">🤖</text>
-                            <text x="610" y="370" text-anchor="middle" font-size="14" font-weight="600" fill="#ffffff">LLM API</text>
-                            <text x="610" y="390" text-anchor="middle" font-size="11" fill="#a0a0a0">OpenAI, Claude, Gemini</text>
+                            <rect x="520" y="340" width="180" height="100" rx="12" fill="rgba(112,0,255,0.1)" stroke="rgba(112,0,255,0.5)" stroke-width="2"/>
+                            <text x="610" y="375" text-anchor="middle" font-size="18" font-weight="bold" fill="#7000ff">🤖</text>
+                            <text x="610" y="400" text-anchor="middle" font-size="14" font-weight="600" fill="#ffffff">LLM API</text>
+                            <text x="610" y="420" text-anchor="middle" font-size="11" fill="#a0a0a0">OpenAI, Claude, Gemini</text>
                         </g>
 
                         <!-- Arrow from Node.js API to LLM API (bidirectional) -->
-                        <line x1="230" y1="360" x2="520" y2="360" stroke="url(#flowGradient)" stroke-width="3" marker-end="url(#arrowhead-flow)" class="arch-arrow arch-arrow-4" stroke-dasharray="5,5"/>
-                        <circle cx="375" cy="360" r="3" fill="#00f2ff" class="flow-dot flow-dot-4"/>
+                        <line x1="238" y1="390" x2="512" y2="390" stroke="url(#flowGradient)" stroke-width="3" marker-end="url(#arrowhead-flow)" class="arch-arrow arch-arrow-4" stroke-dasharray="5,5"/>
+                        <circle cx="375" cy="390" r="3" fill="#00f2ff" class="flow-dot flow-dot-4"/>
 
                         <!-- Connection label -->
-                        <text x="375" y="340" text-anchor="middle" font-size="12" fill="#00f2ff" class="arch-label">API Calls</text>
+                        <text x="375" y="370" text-anchor="middle" font-size="12" fill="#00f2ff" class="arch-label">API Calls</text>
                     </svg>
 
                     <div class="architecture-legend">
@@ -1021,14 +1021,15 @@
         </div>
 
         <!-- Development Workflow Section -->
-        <section id="development-workflow" class="development-workflow section">
+        <section id="development-workflow" class="development-workflow section workflow-section">
             <div class="container">
                 <h2 class="section-title">My Development Workflow</h2>
                 <p class="section-subtitle">Processo de desenvolvimento estruturado e iterativo</p>
 
-                <div class="timeline-container">
+                <div class="workflow-timeline timeline-container">
+                    <div class="timeline-line"></div>
                     <!-- Step 1: Idea -->
-                    <div class="timeline-item reveal-card">
+                    <div class="timeline-item reveal-card timeline-card">
                         <div class="timeline-marker">
                             <div class="marker-icon">💡</div>
                             <div class="marker-dot"></div>
@@ -1045,7 +1046,7 @@
                     </div>
 
                     <!-- Step 2: Architecture -->
-                    <div class="timeline-item reveal-card">
+                    <div class="timeline-item reveal-card timeline-card">
                         <div class="timeline-marker">
                             <div class="marker-icon">🏗️</div>
                             <div class="marker-dot"></div>
@@ -1062,7 +1063,7 @@
                     </div>
 
                     <!-- Step 3: AI Assistance -->
-                    <div class="timeline-item reveal-card">
+                    <div class="timeline-item reveal-card timeline-card">
                         <div class="timeline-marker">
                             <div class="marker-icon">🤖</div>
                             <div class="marker-dot"></div>
@@ -1079,7 +1080,7 @@
                     </div>
 
                     <!-- Step 4: Implementation -->
-                    <div class="timeline-item reveal-card">
+                    <div class="timeline-item reveal-card timeline-card">
                         <div class="timeline-marker">
                             <div class="marker-icon">⚙️</div>
                             <div class="marker-dot"></div>
@@ -1096,7 +1097,7 @@
                     </div>
 
                     <!-- Step 5: Testing -->
-                    <div class="timeline-item reveal-card">
+                    <div class="timeline-item reveal-card timeline-card">
                         <div class="timeline-marker">
                             <div class="marker-icon">🧪</div>
                             <div class="marker-dot"></div>
@@ -1113,7 +1114,7 @@
                     </div>
 
                     <!-- Step 6: Deployment -->
-                    <div class="timeline-item reveal-card">
+                    <div class="timeline-item reveal-card timeline-card">
                         <div class="timeline-marker">
                             <div class="marker-icon">🚀</div>
                             <div class="marker-dot"></div>

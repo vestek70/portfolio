@@ -9,7 +9,6 @@ const app = {
     init() {
         console.log('🚀 Iniciando Laboratório Prático de JavaScript');
         this.initModules();
-        this.attachEventListeners();
         this.initAnimationCanvas();
     },
 
@@ -29,14 +28,6 @@ const app = {
     },
 
     attachEventListeners() {
-        // Color switcher buttons
-        document.querySelectorAll('.btn-color').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const color = e.target.dataset.color;
-                this.modules.colorSwitcher.setColor(color);
-            });
-        });
-
         // Enter key support on input fields
         document.querySelectorAll('.input-field').forEach(input => {
             input.addEventListener('keypress', (e) => {
@@ -163,32 +154,32 @@ class DiscountCalculator {
 // ============================================
 class ColorSwitcher {
     setColor(color) {
-        const boxes = [
-            document.getElementById('colorBox1'),
-            document.getElementById('colorBox2'),
-            document.getElementById('colorBox3')
-        ];
+        const box1 = document.getElementById('colorBox1');
+        const box2 = document.getElementById('colorBox2');
+        const box3 = document.getElementById('colorBox3');
 
-        boxes.forEach(box => {
-            if (box) {
-                box.style.backgroundColor = color;
-                box.style.transition = 'background-color 0.3s ease';
-            }
-        });
+        if (box1) {
+            box1.style.background = color;
+            box1.style.transition = 'background 0.3s ease';
+        }
+        if (box2) {
+            box2.style.background = color;
+            box2.style.transition = 'background 0.3s ease';
+        }
+        if (box3) {
+            box3.style.background = color;
+            box3.style.transition = 'background 0.3s ease';
+        }
     }
 
     reset() {
-        const boxes = [
-            document.getElementById('colorBox1'),
-            document.getElementById('colorBox2'),
-            document.getElementById('colorBox3')
-        ];
+        const box1 = document.getElementById('colorBox1');
+        const box2 = document.getElementById('colorBox2');
+        const box3 = document.getElementById('colorBox3');
 
-        boxes.forEach(box => {
-            if (box) {
-                box.style.backgroundColor = '';
-            }
-        });
+        if (box1) box1.style.background = '';
+        if (box2) box2.style.background = '';
+        if (box3) box3.style.background = '';
     }
 }
 
@@ -305,7 +296,7 @@ class TicTacToe {
         if (this.gameOver) return;
 
         const cell = e.target;
-        const index = Array.from(cell.parentElement.children).indexOf(cell);
+        const index = parseInt(cell.dataset.index);
 
         if (this.board[index] !== null) return;
 
@@ -348,7 +339,10 @@ class TicTacToe {
     }
 
     initializeBoardListeners() {
-        document.querySelectorAll('.game-cell').forEach(cell => {
+        const cells = document.querySelectorAll('.game-cell');
+        if (cells.length === 0) return;
+        
+        cells.forEach(cell => {
             cell.onclick = (e) => this.play(e);
         });
     }
@@ -745,14 +739,18 @@ document.addEventListener('keydown', (e) => {
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize app modules
     app.init();
     
-    // Initialize Tic-Tac-Toe listeners
-    app.modules.tictactoe.initializeBoardListeners();
+    // Initialize Tic-Tac-Toe after app init (with small delay to ensure DOM is ready)
+    setTimeout(() => {
+        app.modules.tictactoe.initializeBoardListeners();
+        app.modules.tictactoe.reset();
+    }, 100);
 
     // Initialize AI typing animations
     const aiAnimator = new AITypingAnimation();
     aiAnimator.startAnimation();
-    
+
     console.log('✅ Aplicação inicializada com sucesso!');
 });
