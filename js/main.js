@@ -741,7 +741,7 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize app modules
     app.init();
-    
+
     // Initialize Tic-Tac-Toe after app init (with small delay to ensure DOM is ready)
     setTimeout(() => {
         app.modules.tictactoe.initializeBoardListeners();
@@ -751,6 +751,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize AI typing animations
     const aiAnimator = new AITypingAnimation();
     aiAnimator.startAnimation();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
 
     console.log('✅ Aplicação inicializada com sucesso!');
 });
