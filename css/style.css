@@ -2550,11 +2550,35 @@ select:focus {
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
     .mobile-menu-btn {
-        display: flex;
+        display: flex !important;
     }
 
     .nav-links {
-        display: none;
+        display: none !important;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(10, 14, 39, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: calc(1rem + env(safe-area-inset-top)) 2rem 2rem;
+        gap: 1.5rem;
+        transition: right 0.3s ease;
+        border-left: 1px solid var(--glass-border);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 99;
+    }
+
+    .nav-links.active {
+        right: 0;
+        display: flex !important;
     }
 
     .hero {
@@ -2661,36 +2685,10 @@ select:focus {
         font-size: 0.95rem;
     }
 
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        height: 100dvh;
-        background: rgba(10, 14, 39, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: calc(1rem + env(safe-area-inset-top)) 2rem 2rem;
-        gap: 1.5rem;
-        transition: right 0.3s ease;
-        border-left: 1px solid var(--glass-border);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
     .nav-links a {
         font-size: 1.1rem;
         display: block;
         padding: 0.8rem 0;
-    }
-
-    .nav-links {
-        gap: 1.5rem;
     }
 
     .section {

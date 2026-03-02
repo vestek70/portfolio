@@ -756,9 +756,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
+    console.log('🔍 Mobile menu debug:', {
+        btnExists: !!mobileMenuBtn,
+        navExists: !!navLinks,
+        btnClass: mobileMenuBtn?.className,
+        navClass: navLinks?.className
+    });
+
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            e.preventDefault();
+            
+            const isActive = navLinks.classList.contains('active');
+            console.log('🍔 Menu toggle:', isActive ? 'closing' : 'opening');
+            
             mobileMenuBtn.classList.toggle('active');
             navLinks.classList.toggle('active');
             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
