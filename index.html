@@ -14,6 +14,25 @@
     
     <style>
         /* Critical mobile styles inline for faster rendering */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 98;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+        
         @media (max-width: 1024px) {
             .mobile-menu-btn { 
                 display: flex !important; 
@@ -25,6 +44,9 @@
             }
             .nav-links.active {
                 display: flex !important;
+            }
+            .menu-overlay.active {
+                display: block !important;
             }
         }
     </style>
@@ -56,6 +78,9 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" onclick="closeMenu()"></div>
 
     <main>
         <!-- Hero Section -->

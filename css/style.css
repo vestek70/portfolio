@@ -30,6 +30,8 @@ html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     touch-action: manipulation;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -37,9 +39,14 @@ body {
     background: var(--bg-dark);
     color: var(--text);
     overflow-x: hidden;
+    width: 100%;
     position: relative;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
+}
+
+body.menu-open {
+    overflow: hidden;
 }
 
 /* Background Canvas */
@@ -252,9 +259,35 @@ main {
     margin-left: auto;
 }
 
+/* Menu Overlay */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 98;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
 @media (max-width: 1024px) {
     .mobile-menu-btn {
         display: flex !important;
+    }
+    
+    .menu-overlay.active {
+        display: block !important;
     }
 }
 
@@ -2620,24 +2653,28 @@ select:focus {
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 280px;
+        max-width: 80vw;
         height: 100vh;
         height: 100dvh;
         background: rgba(10, 14, 39, 0.98);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
-        padding: calc(1rem + env(safe-area-inset-top)) 2rem 2rem;
+        padding: calc(1rem + env(safe-area-inset-top)) 1.5rem 2rem;
         gap: 1.5rem;
-        transition: right 0.3s ease;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(100%);
         border-left: 1px solid var(--glass-border);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         z-index: 99;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
     }
 
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
         display: flex !important;
     }
 
