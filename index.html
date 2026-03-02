@@ -15,8 +15,17 @@
     <style>
         /* Critical mobile styles inline for faster rendering */
         @media (max-width: 1024px) {
-            .mobile-menu-btn { display: flex !important; }
-            .nav-links { display: none !important; }
+            .mobile-menu-btn { 
+                display: flex !important; 
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            .nav-links { 
+                display: none !important; 
+            }
+            .nav-links.active {
+                display: flex !important;
+            }
         }
     </style>
 </head>
