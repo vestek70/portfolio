@@ -28,6 +28,8 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
 }
 
 body {
@@ -37,6 +39,7 @@ body {
     overflow-x: hidden;
     position: relative;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 }
 
 /* Background Canvas */
@@ -66,13 +69,28 @@ main {
 .header {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     padding: 0 2rem;
+    padding-top: max(0.5rem, env(safe-area-inset-top));
     z-index: 100;
     backdrop-filter: blur(20px);
     background: linear-gradient(180deg, rgba(10, 14, 39, 0.8), rgba(10, 14, 39, 0.4));
     border-bottom: 1px solid var(--glass-border);
     transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0 0.75rem;
+    }
 }
 
 .nav-container {
@@ -83,6 +101,18 @@ main {
     justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0.75rem 0;
+    }
+}
+
 .logo {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.3rem;
@@ -91,6 +121,20 @@ main {
     letter-spacing: 2px;
     text-transform: capitalize;
     margin-right: 0;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
 }
 
 .nav-links {
@@ -144,8 +188,11 @@ main {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
     z-index: 101;
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
 }
 
 .mobile-menu-btn span {
@@ -241,6 +288,16 @@ main {
     overflow: hidden;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.5px;
+    min-height: 48px;
+    touch-action: manipulation;
+}
+
+@media (max-width: 480px) {
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 1.125rem 2rem;
+    }
 }
 
 .cta-button::before {
@@ -432,6 +489,15 @@ main {
     font-size: 0.85rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    min-height: 36px;
+    touch-action: manipulation;
+}
+
+@media (max-width: 480px) {
+    .tech-tag {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
 }
 
 .tech-tag:hover {
@@ -708,6 +774,13 @@ select {
     transition: all 0.3s ease;
 }
 
+@media (max-width: 768px) {
+    .input-field,
+    select {
+        font-size: 16px; /* Prevent iOS zoom on input focus */
+    }
+}
+
 .input-field::placeholder {
     color: var(--text-muted);
 }
@@ -733,6 +806,14 @@ select:focus {
     letter-spacing: 0.5px;
     position: relative;
     touch-action: manipulation;
+    min-height: 44px; /* Minimum touch target size */
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.875rem 1.5rem;
+        min-height: 48px; /* Larger touch target on mobile */
+    }
 }
 
 .btn-primary {
@@ -829,21 +910,6 @@ select:focus {
     }
 }
 
-/* === RESULT BOX === */
-.result-box {
-    padding: 1rem;
-    background: rgba(0, 217, 255, 0.08);
-    border: 1px solid rgba(0, 217, 255, 0.2);
-    border-radius: 12px;
-    color: var(--primary);
-    font-size: 0.95rem;
-    min-height: 65px;
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    width: 100%;
-}
-
 /* === COLOR BOXES === */
 .color-boxes {
     display: grid;
@@ -923,6 +989,15 @@ select:focus {
     align-items: center;
     font-weight: 500;
     width: 100%;
+    word-break: break-word;
+}
+
+@media (max-width: 480px) {
+    .result-box {
+        font-size: 0.875rem;
+        padding: 0.875rem;
+        min-height: 60px;
+    }
 }
 
 /* === CALCULATOR INPUTS === */
@@ -1003,6 +1078,24 @@ select:focus {
     gap: 1rem;
     visibility: visible !important;
     opacity: 1 !important;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .game-info {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0.75rem 0.875rem;
+    }
+
+    .game-info #gameStatus {
+        width: 100%;
+        text-align: center;
+    }
+
+    .game-info .btn-secondary {
+        width: 100%;
+    }
 }
 
 .game-info #gameStatus {
@@ -1075,6 +1168,14 @@ select:focus {
     border-top-color: var(--primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
+}
+
+@media (max-width: 480px) {
+    .spinner {
+        width: 32px;
+        height: 32px;
+        border-width: 2px;
+    }
 }
 
 /* === ENGINEERING SECTIONS === */
@@ -2552,11 +2653,6 @@ select:focus {
         font-size: 0.95rem;
     }
 
-    .cta-button {
-        width: 100%;
-        justify-content: center;
-    }
-
     .mobile-menu-btn {
         display: flex;
     }
@@ -2567,13 +2663,16 @@ select:focus {
         right: -100%;
         width: 280px;
         height: 100vh;
+        height: 100dvh;
         background: rgba(10, 14, 39, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
-        padding: 100px 2rem 2rem;
+        padding: calc(1rem + env(safe-area-inset-top)) 2rem 2rem;
         gap: 1.5rem;
         transition: right 0.3s ease;
         border-left: 1px solid var(--glass-border);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links.active {
@@ -2615,10 +2714,6 @@ select:focus {
         grid-template-columns: 1fr;
     }
 
-    .hero-title {
-        font-size: 2rem;
-    }
-
     .architecture-container {
         padding: 1.5rem;
     }
@@ -2629,10 +2724,6 @@ select:focus {
 
     .architecture-legend {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .playground-grid {
-        grid-template-columns: 1fr;
     }
 
     .featured-layout {
@@ -2752,8 +2843,12 @@ select:focus {
         display: none;
     }
 
-    .hero-subtitle {
-        font-size: 1.1rem;
+    .game-board {
+        max-width: 200px;
+    }
+
+    .game-cell {
+        font-size: 2rem;
     }
 
     .modal-container {
@@ -3107,16 +3202,4 @@ summary {
     font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.5;
-}
-
-@media (max-width: 1024px) {
-    .engineering-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 640px) {
-    .engineering-grid {
-        grid-template-columns: 1fr;
-    }
 }
