@@ -2549,6 +2549,14 @@ select:focus {
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
     .hero {
         padding: 120px 0 60px;
     }
@@ -2651,10 +2659,6 @@ select:focus {
 
     .hero-description {
         font-size: 0.95rem;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
     }
 
     .nav-links {
@@ -2833,14 +2837,6 @@ select:focus {
 
     .section-subtitle {
         font-size: 0.9rem;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
     }
 
     .game-board {
